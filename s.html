@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>Form Validation</title>
+<script type="text/javascript">
+// Form validation code will come here.
+function validate()
+{
+var n = document.myForm.Name.value;
+if( n == "" || (!isNaN(parseInt(n))) || n.length < 3 || n.length >= 8)
+{
+alert( "Please enter valid name and minimum length 3 characters and maximum length 8 characters !" );
+document.myForm.Name.focus();
+return false;
+}
+
+var emailID = document.myForm.EMail.value;
+if( emailID == "" )
+{
+alert( "Please provide your Email!" );
+document.myForm.EMail.focus() ;
+return false;
+}
+
+atpos = emailID.indexOf("@");
+dotpos = emailID.lastIndexOf(".");
+if (atpos < 1 || ( dotpos - atpos < 2 ))
+{
+alert("Please enter correct email ID")
+document.myForm.EMail.focus() ;
+return false;
+}
+var p=document.getElementById('password').value;
+var cp=document.getElementById('confirm_password').value;
+ if (p != cp ) 
+  {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+return false;
+  }
+
+var z = document.myForm.Zip.value;
+if(z == "" ||isNaN(z) || z.length != 6 )
+{
+alert( "Please provide a zip in the format #####." );
+document.myForm.Zip.focus() ;
+return false;
+}
+
+var c = document.myForm.Country.value;
+if( c == "-1" )
+{
+alert( "Please provide your country!" );
+return false;
+}
+return( true );
+} 
+//
+</script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=email]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+ 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<h1><p align="center"> <b>Application Form Validation Using JavaScript</b></p></h1>
+
+<div id="id01" class="modal">
+<form action="reg.html" name="myForm" onsubmit="return(validate());">
+
+<td align="right"><b>Name</b></td>
+<td><input type="text" name="Name" size="50" /></td>
+</tr>
+<tr>
+<td align="right"><b>EMail</b></td>
+<td><input type="text" name="EMail" size="50" /></td>
+</tr>
+<tr>
+<td align="right"><b>password</b></td>
+<td><input name="password" id="password" type="password"  /></td>
+</tr>
+<tr>
+<td align="right"><b>confirm password:</b></td>
+<td> <input type="password" name="confirm_password" id="confirm_password"  /> </td>
+ <span id='message'></span>
+</tr>
+<tr>
+<td align="right"><b>Zip Code</b></td>
+<td><input type="text" name="Zip" size="50" /></td>
+</tr>
+<tr>
+<td align="right" ><b>Country</b></td>
+<td>
+<select name="Country">
+<option value="-1" selected>[choose yours]</option>
+<option value="1">INDIA</option>
+<option value="2">UK</option>
+<option value="3">USA</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"></td>
+<td><input type="submit" value="Submit" /></td>
+</tr>
+</font>   </table>   </form> 
+</div> </body>    </html>

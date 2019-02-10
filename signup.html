@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel = "stylesheet" type = "text/css" href = "css/new.css">
+
+<script>
+function validate()
+{
+var c=document.myForm.country.value;
+	if(c==-1)
+	{
+		alert("Please select a branch")
+		document.myForm.country.focus();
+		return false;
+	}
+var c=document.myForm.ename.value;
+	if(c==-1)
+	{
+		alert("Please select a event")
+		document.myForm.ename.focus();
+		return false;
+	}	
+var x = document.myForm.rno.value;
+  if (x == "" || x.length<10 || x.length>10) {
+    alert("Enter valid roll no",);
+	document.myForm.rno.focus();
+    return false;
+  }
+  var n = document.myForm.Name.value;
+if( n == "" || (!isNaN(parseInt(n))) || n.length < 3 )
+{
+alert( "Please enter valid name" );
+document.myForm.Name.focus();
+return false;
+}
+var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  
+var x = document.myForm.mobile.value;  
+  if (x.value.match(phoneno) || x == ""  || x.length!=10) {
+    alert("Enter valid mobile number!",);
+	document.myForm.mobile.focus();
+    return false;
+  }
+  
+
+ 
+
+
+  
+   
+ return true;
+}
+</script>
+
+
+</head>
+<body>
+
+
+
+<!--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+-->
+<div id="id01" class="modal">
+
+  <form name="myForm" class="modal-content" method="post" onsubmit="return(validate());" action="insert.php">
+    <div class="container">
+      <h1>Register</h1>
+      <p>Please fill in this form to register.</p>
+      <hr>
+      <label for="rno"><b>Roll No</b></label>
+      <input type="text" placeholder="Enter Roll number" name="rno" required>
+
+	   <label for="name"><b>Name</b></label>
+	   
+      <input type="text"  placeholder="Enter name" name="Name" size="50" required />
+	  
+	   <label for="email"><b>Email</b></label>
+      <input type="email"  placeholder="Enter email" name="EMail" size="50" required />
+      
+	  <label for="mobile"><b>Mobile</b></label>
+      <input type="text" placeholder="Enter Mobile number" name="mobile"  required>
+	  <label for="branch"><b>Branch</b></label>
+	  <div class="styled-select slate">
+  
+  <select name="country">
+	<option value="-1" selected>choose branch</option>
+	 <option vlaue="1">CSE</option>
+    <option vlaue="2">MECH</option>
+	<option vlaue="3">CIVIL</option>
+	<option vlaue="4">IT</option>
+	<option vlaue="5">ECE</option>
+	<option vlaue="6">EEE</option>
+	<option vlaue="7">AERO</option>
+	<option vlaue="8">OTHER</option>
+	
+	</select>
+  <br>
+  <br>
+  <label for="ename"><b>EventName</b></label>
+  <br>
+  <select name="ename">
+	<option value="-1" selected>choose event</option>
+	 <option vlaue="1">PAPER PRESENTATION</option>
+    <option vlaue="2">POSTER PRESENTATION</option>
+	<option vlaue="3">CODE MANIA</option>
+	<option vlaue="4">REVERSE CODING</option>
+	<option vlaue="5">DOMAIN QUIZ</option>
+	<option vlaue="6">LOGO QUIZ</option>
+	<option vlaue="7">ABSTRACT PRESENTATION</option>
+	
+	<option vlaue="8">LAN GAMING</option>
+	<option vlaue="9">EXPODIVE</option>
+	<option vlaue="10">WRITE UP</option>
+	<option vlaue="11">TECH-INIT-O</option>
+	
+	<option vlaue="12">CODE HUNT</option>
+	<option vlaue="13">VAKTHA</option>
+	<option vlaue="14">DRAWING AND PAINTING</option>
+	<option vlaue="15">SPELL-O-PEDIA</option>
+	<option vlaue="16">	BRAIN BUZZ</option>
+	<option vlaue="17">SINGING</option>
+	
+	</select>
+      
+</div>
+
+      <p>By Applying you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        
+        <button type="Submit" value="Submit" class="signupbtn" >Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+</body>
+</html>
